@@ -27,7 +27,7 @@ const formatTitle = (content: { title?: string }) =>
 	content.title ? `${content.title}` : t('site.title');
 // Ensures the canonicalURL always has a trailing slash.
 const canonicalURL = new URL(Astro.url.pathname.replace(/([^/])$/, '$1/'), Astro.site);
-if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/`, '/en/');
+if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/ai-expert/${lang}/`, '/en/');
 ---
 
 <html dir={direction} lang={bcpLang} class="initial">

@@ -1,4 +1,5 @@
 ---
+import { indexOfHref } from 'scripts/lib/linkcheck/base/base';
 import UIString from '../UIString.astro';
 
 export interface Props {
@@ -7,9 +8,11 @@ export interface Props {
 }
 
 const { item, rel } = Astro.props as Props;
+
+new URL(item.link, Astro.site).pathname= "/ai-expert/en/";
 ---
 
-<a class={rel === 'next' ? 'rtl' : 'ltr'} rel={rel} href={new URL(item.link, Astro.site).pathname}>
+<a class={rel === 'next' ? 'rtl' : 'ltr'} rel={rel}  href={"/ai-expert" + new URL(item.link, Astro.site).pathname}>
 	{
 		rel === 'prev' && (
 			<svg

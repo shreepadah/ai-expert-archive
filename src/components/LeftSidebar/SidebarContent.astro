@@ -2,6 +2,7 @@
 import { getLanguageFromURL } from '~/util';
 import { isSubPage } from '~/util/isSubPage';
 
+
 export interface Props {
 	type: TabType;
 	defaultActiveTab: TabType;
@@ -43,7 +44,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 					{section.children.map(({ slug, text, isFallback }) => (
 						<li class="nav-link">
 							<a
-								href={`${Astro.site?.pathname}${lang}/${slug}/`}
+								href={`${Astro.site?.pathname}ai-expert/${lang}/${slug}/`}
 								aria-current={`${currentPageMatch.endsWith(slug) ? 'page' : 'false'}`}
 								data-current-parent={`${isSubPage(currentPageMatch, slug) ? 'true' : 'false'}`}
 							>
