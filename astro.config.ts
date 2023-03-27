@@ -19,7 +19,7 @@ import { theme } from './syntax-highlighting-theme';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://shreepadah.github.io',
-	base: '/ai-expert',
+// 	base: '/ai-expert',
 	integrations: [
 		AutoImport({
 			imports: [asideAutoImport, codeSnippetAutoImport],
