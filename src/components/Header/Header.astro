@@ -1,0 +1,179 @@
+---
+import SkipToContent from './SkipToContent.astro';
+import SidebarToggle from './SidebarToggle';
+import Search from './Search.astro';
+import ThemeToggleButton from './ThemeToggleButton';
+import { getLanguageFromURL } from '../../util';
+import { getDocSearchStrings, useTranslations } from '../../i18n/util';
+
+const { currentPage } = Astro.props;
+const lang = currentPage && getLanguageFromURL(currentPage);
+const docsearchStrings = getDocSearchStrings(Astro);
+const t = useTranslations(Astro);
+---
+
+<header>
+	<SkipToContent />
+	<nav class="nav-wrapper" aria-label={t('navbar.a11yTitle')}>
+		<div dir="ltr" lang="en" class="logo flex">
+					<a class="docs" href={`/${lang || 'en'}/getting-started/`}>
+						<span class="sr-only">AI - Expert </span>
+
+						<svg width="406.689" height="95.117" viewBox="0 0 406.689 95.117" xmlns="http://www.w3.org/2000/svg"><g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#fa690f" stroke-width="0.25mm" fill="#fa690f" style="stroke:#fa690f;stroke-width:0.25mm;fill:#fa690f"><path d="M 60.01 71.631 L 54.736 71.631 L 45.02 46.387 L 15.039 46.387 L 5.127 71.631 L 0 71.631 L 28.076 0 L 32.666 0 L 60.01 71.631 Z M 16.748 41.846 L 43.408 41.846 L 33.545 15.088 A 60.165 60.165 0 0 1 33.339 14.539 Q 33.014 13.66 32.593 12.451 A 349.63 349.63 0 0 1 32.019 10.791 A 412.99 412.99 0 0 1 31.421 9.033 A 170.998 170.998 0 0 0 30.817 7.275 A 145.793 145.793 0 0 0 30.225 5.615 A 68.903 68.903 0 0 1 29.15 9.033 Q 28.564 10.742 28.027 12.329 A 87.447 87.447 0 0 1 27.502 13.837 A 64.01 64.01 0 0 1 27.002 15.186 L 16.748 41.846 Z" id="0" vector-effect="non-scaling-stroke"/><path d="M 75.146 71.631 L 70.117 71.631 L 70.117 0.244 L 75.146 0.244 L 75.146 71.631 Z" id="1" vector-effect="non-scaling-stroke"/><path d="M 113.477 46.875 L 89.258 46.875 L 89.258 42.334 L 113.477 42.334 L 113.477 46.875 Z" id="2" vector-effect="non-scaling-stroke"/><path d="M 166.504 67.09 L 166.504 71.631 L 127.49 71.631 L 127.49 0.244 L 166.504 0.244 L 166.504 4.785 L 132.52 4.785 L 132.52 31.836 L 164.6 31.836 L 164.6 36.377 L 132.52 36.377 L 132.52 67.09 L 166.504 67.09 Z" id="3" vector-effect="non-scaling-stroke"/><path d="M 174.951 71.631 L 194.336 44.336 L 175.83 18.555 L 181.592 18.555 L 197.314 40.967 L 213.037 18.555 L 218.75 18.555 L 200.391 44.336 L 219.922 71.631 L 214.111 71.631 L 197.314 47.803 L 180.615 71.631 L 174.951 71.631 Z" id="4" vector-effect="non-scaling-stroke"/><path d="M 236.23 61.816 L 235.889 61.816 A 277.559 277.559 0 0 1 236.081 66.129 A 314.146 314.146 0 0 1 236.133 67.627 A 194.311 194.311 0 0 1 236.206 70.569 A 162.241 162.241 0 0 1 236.23 73.34 L 236.23 95.117 L 231.25 95.117 L 231.25 18.555 L 235.352 18.555 L 235.938 29.15 L 236.23 29.15 A 20.938 20.938 0 0 1 239.082 24.457 A 24.272 24.272 0 0 1 239.941 23.437 A 16.649 16.649 0 0 1 244.402 19.926 A 20.186 20.186 0 0 1 245.996 19.141 A 18.08 18.08 0 0 1 250.012 17.932 Q 252.197 17.529 254.736 17.529 A 24.424 24.424 0 0 1 261.51 18.418 A 17.935 17.935 0 0 1 270.63 24.414 A 21.997 21.997 0 0 1 274.385 31.388 Q 275.445 34.524 275.909 38.353 A 53.085 53.085 0 0 1 276.27 44.727 A 50.054 50.054 0 0 1 275.843 51.448 Q 275.2 56.191 273.584 59.937 Q 270.898 66.162 265.942 69.385 A 19.703 19.703 0 0 1 258.292 72.277 A 26.2 26.2 0 0 1 254.053 72.607 A 26.878 26.878 0 0 1 250.104 72.332 Q 247.719 71.977 245.728 71.167 A 18.011 18.011 0 0 1 242.034 69.159 A 15.178 15.178 0 0 1 239.844 67.261 A 18.259 18.259 0 0 1 236.23 61.816 Z M 236.23 44.336 L 236.23 45.166 A 51.629 51.629 0 0 0 236.499 50.595 Q 236.95 54.851 238.159 58.081 A 18.264 18.264 0 0 0 240.134 61.963 A 13.666 13.666 0 0 0 243.97 65.771 A 15.044 15.044 0 0 0 249.086 67.859 Q 251.117 68.296 253.462 68.31 A 25.988 25.988 0 0 0 253.613 68.311 A 19.127 19.127 0 0 0 258.195 67.787 A 14.467 14.467 0 0 0 263.184 65.527 A 15.838 15.838 0 0 0 267.595 60.663 A 21.234 21.234 0 0 0 269.141 57.471 Q 270.915 52.908 271.154 46.664 A 51.907 51.907 0 0 0 271.191 44.678 A 46.86 46.86 0 0 0 270.795 38.363 Q 270.37 35.252 269.492 32.711 A 18.773 18.773 0 0 0 266.919 27.686 A 13.82 13.82 0 0 0 257.872 22.194 A 21.22 21.22 0 0 0 254.102 21.875 A 22.819 22.819 0 0 0 249.719 22.274 Q 246.988 22.808 244.813 24.059 A 13.869 13.869 0 0 0 244.116 24.487 A 14.756 14.756 0 0 0 239.15 30.029 A 19.012 19.012 0 0 0 238.208 32.104 Q 236.279 37.109 236.23 44.336 Z" id="5" vector-effect="non-scaling-stroke"/><path d="M 331.104 42.041 L 331.104 45.605 L 292.773 45.605 A 38.13 38.13 0 0 0 293.267 51.945 Q 294.353 58.374 297.827 62.402 A 16.386 16.386 0 0 0 307.094 67.745 A 24.88 24.88 0 0 0 312.305 68.262 A 50.974 50.974 0 0 0 316.235 68.118 Q 318.137 67.971 319.795 67.672 A 27.737 27.737 0 0 0 320.874 67.456 Q 324.512 66.65 328.955 64.697 L 328.955 69.238 A 38.217 38.217 0 0 1 322.607 71.466 A 34.612 34.612 0 0 1 321.143 71.802 A 36.895 36.895 0 0 1 317.223 72.38 Q 315.17 72.577 312.869 72.603 A 62.467 62.467 0 0 1 312.158 72.607 A 32.125 32.125 0 0 1 306.098 72.066 Q 302.434 71.362 299.485 69.744 A 19.544 19.544 0 0 1 298.657 69.263 Q 293.213 65.918 290.454 59.814 A 30.194 30.194 0 0 1 288.223 52.299 A 41.095 41.095 0 0 1 287.695 45.557 A 40.943 40.943 0 0 1 288.446 37.555 A 32.845 32.845 0 0 1 290.356 31.25 A 24.31 24.31 0 0 1 294.394 24.65 A 21.725 21.725 0 0 1 298.169 21.216 A 19.425 19.425 0 0 1 306.16 17.926 A 26.483 26.483 0 0 1 310.84 17.529 A 23.939 23.939 0 0 1 315.957 18.048 A 16.915 16.915 0 0 1 322.144 20.703 A 18.749 18.749 0 0 1 328.445 28.381 A 22.849 22.849 0 0 1 328.882 29.395 A 30.075 30.075 0 0 1 330.723 36.414 A 39.926 39.926 0 0 1 331.104 42.041 Z M 292.92 41.406 L 325.977 41.406 A 34.592 34.592 0 0 0 325.612 36.259 A 25.333 25.333 0 0 0 324.316 31.152 Q 322.656 26.709 319.312 24.243 A 12.218 12.218 0 0 0 314.694 22.184 Q 313.006 21.803 311.053 21.779 A 21.439 21.439 0 0 0 310.791 21.777 A 18.641 18.641 0 0 0 304.981 22.644 A 15.266 15.266 0 0 0 298.462 26.831 Q 293.75 31.885 292.92 41.406 Z" id="6" vector-effect="non-scaling-stroke"/><path d="M 374.219 18.555 L 373.438 23.096 A 24.773 24.773 0 0 0 370.166 22.437 A 25.313 25.313 0 0 0 367.995 22.248 A 30.707 30.707 0 0 0 366.602 22.217 A 17.073 17.073 0 0 0 362.834 22.616 A 13.848 13.848 0 0 0 359.888 23.633 Q 356.934 25.049 354.883 27.686 Q 352.832 30.322 351.758 34.033 Q 350.684 37.744 350.684 42.334 L 350.684 71.631 L 345.703 71.631 L 345.703 18.555 L 349.951 18.555 L 350.439 28.564 L 350.732 28.564 Q 351.953 25.488 354.175 23.022 A 16.432 16.432 0 0 1 359.558 19.098 A 19.507 19.507 0 0 1 359.57 19.092 A 15.792 15.792 0 0 1 364.114 17.8 A 20.151 20.151 0 0 1 366.797 17.627 Q 368.896 17.627 370.752 17.871 A 27.657 27.657 0 0 1 373.135 18.287 A 23.323 23.323 0 0 1 374.219 18.555 Z" id="7" vector-effect="non-scaling-stroke"/><path d="M 406.689 67.139 L 406.689 71.24 A 22.577 22.577 0 0 1 405.219 71.687 Q 404.461 71.891 403.607 72.073 A 38.92 38.92 0 0 1 403.027 72.192 Q 400.928 72.607 398.389 72.607 A 19.878 19.878 0 0 1 395.232 72.371 Q 393.469 72.087 392.012 71.463 A 11.053 11.053 0 0 1 390.918 70.923 A 10.295 10.295 0 0 1 386.88 66.729 A 13.066 13.066 0 0 1 386.426 65.796 Q 385.249 63.12 384.987 59.308 A 33.234 33.234 0 0 1 384.912 57.031 L 384.912 22.656 L 377.002 22.656 L 377.002 19.727 L 384.863 18.213 L 386.572 5.713 L 389.844 5.713 L 389.844 18.555 L 406.396 18.555 L 406.396 22.656 L 389.844 22.656 L 389.844 56.738 A 24.708 24.708 0 0 0 390.031 59.887 Q 390.238 61.493 390.674 62.802 A 9.644 9.644 0 0 0 391.968 65.405 A 6.685 6.685 0 0 0 395.563 67.909 Q 397.038 68.359 398.926 68.359 A 27.18 27.18 0 0 0 401.605 68.232 A 22.228 22.228 0 0 0 403.198 68.018 A 25.515 25.515 0 0 0 404.95 67.654 Q 405.768 67.453 406.486 67.209 A 15.566 15.566 0 0 0 406.689 67.139 Z" id="8" vector-effect="non-scaling-stroke"/></g>
+						<style>
+							.text {
+							font-size: 64px;
+  						font-family: Arial Black;
+  						dominant-baseline: central;
+  						text-anchor: middle;
+							};
+							.hover {
+								fill: var(--theme-accent);
+							};
+							</style>
+							</svg>
+					</a>
+		</div>
+		<ThemeToggleButton
+			client:visible
+			labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+			isInsideHeader={true}
+		/>
+		<Search {lang} labels={docsearchStrings} />
+		<SidebarToggle client:idle />
+	</nav>
+</header>
+
+<style>
+	header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		height: var(--theme-navbar-height);
+		z-index: 11;
+		padding: 2rem 0;
+		background-color: var(--theme-navbar-bg);
+		display: flex;
+		align-items: center;
+		justify-content: left;
+		overflow: hidden;
+	}
+
+	ul,
+	li {
+		all: inherit;
+		flex-grow: 0;
+	}
+
+	.nav-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		width: 100%;
+		padding-inline: var(--min-spacing-inline);
+	}
+
+	/* If the device is likely to show a scrollbar gutter, reserve space for it */
+	@media (hover: hover) {
+		.nav-wrapper {
+			max-width: calc(100vw - 1.1rem);
+		}
+	}
+
+	.logo {
+		display: flex;
+		justify-content: flex-start;
+		font-size: 1rem;
+		flex-grow: 1;
+		flex-shrink: 0;
+		font-weight: 600;
+		line-height: 1;
+		color: hsla(var(--color-base-white), 100%, 1);
+		text-decoration: none;
+		gap: 0.5em;
+	}
+
+	:global([dir='rtl']) .logo {
+		justify-content: flex-end;
+	}
+
+	.logo a {
+		padding: 0.5em 0.25em;
+		margin: -0.5em -0.25em;
+	}
+
+	.logo svg {
+		height: 40px;
+		width: auto;
+		display: block;
+		color: var(--theme-accent);
+	}
+
+	.logo .hover {
+		opacity: 0;
+	}
+	.logo a {
+		transition: transform 180ms ease-out;
+	}
+
+	.logo a:hover,
+	.logo a:focus {
+		opacity: 1;
+		transform: translateY(-2px);
+	}
+
+	.logo a:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	.logo h1 {
+		font: inherit;
+		color: inherit;
+		margin: 0;
+	}
+
+	.astro {
+		overflow: hidden;
+		width: 41px;
+	}
+
+	.docs {
+		display: none;
+	}
+
+	@media (min-width: 20em) {
+		.docs {
+			display: inherit;
+			max-width: 80px;
+		}
+	}
+
+	@media (min-width: 23.5em) {
+		.docs {
+			max-width: none;
+		}
+		.nav-wrapper {
+			gap: 1rem;
+		}
+	}
+
+	@media (min-width: 50em) {
+		header {
+			padding: 2.5rem 0 1.5rem 0;
+		}
+		.astro {
+			width: auto;
+		}
+	}
+
+	@media (forced-colors: active) {
+		.text {
+			fill: LinkText;
+		}
+		.docs-path {
+			fill: ActiveText;
+		}
+	}
+</style>
