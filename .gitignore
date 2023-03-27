@@ -4,9 +4,9 @@ dist
 
 # dependencies
 node_modules/
-package-lock.lock
-package-lock.json
-yarn.lock
+# package-lock.lock
+# package-lock.json
+# yarn.lock
 
 # logs
 npm-debug.log*
